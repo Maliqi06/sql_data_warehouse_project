@@ -15,8 +15,8 @@ GO
 
 CREATE TABLE bronze.source_address (
     address_id          INT,
-    Address_Line_1      NVARCHAR(100),
-    Address_Line_2      NVARCHAR(100),
+    address_Line_1      NVARCHAR(100),
+    address_Line_2      NVARCHAR(100),
     city                NVARCHAR(50),
     state_province      NVARCHAR(50),
     country_region      NVARCHAR(50),
