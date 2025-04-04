@@ -117,12 +117,12 @@ GO
 IF OBJECT_ID('bronze.source_product_model_product_description', 'U') IS NOT NULL
     DROP TABLE bronze.source_product_model_product_description;
 GO
-
 CREATE TABLE bronze.source_product_model_product_description (
-    product_description_id   INT,
-    description_info         NVARCHAR(255),
-    row_guid                 NVARCHAR(100),
-    modified_date            DATETIME
+    product_model_id   		INT,
+    product_description_id      NVARCHAR(255),
+    culture                 	NVARCHAR(100),
+    row_guid                 	NVARCHAR(100),
+    modified_date            	DATETIME
 );
 GO
 
