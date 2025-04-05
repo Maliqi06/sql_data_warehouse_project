@@ -21,7 +21,7 @@ IF OBJECT_ID('bronze.source_customer', 'U') IS NOT NULL
 GO
 
 CREATE TABLE bronze.source_customer (
-	customer_id         INT ,
+    customer_id         INT,
     name_style          INT,
     title               NVARCHAR(10),
     first_name          NVARCHAR(50),
@@ -44,11 +44,11 @@ IF OBJECT_ID('bronze.source_customer_address', 'U') IS NOT NULL
 GO
 
 CREATE TABLE bronze.source_customer_address (
-    customer_id   INT,
-    address_id    INT,
-    address_type  NVARCHAR(50),
-    row_guid      NVARCHAR(100),
-    modified_date DATETIME
+    customer_id   	INT,
+    address_id    	INT,
+    address_type  	NVARCHAR(50),
+    row_guid      	NVARCHAR(100),
+    modified_date 	DATETIME
 );
 GO
 
