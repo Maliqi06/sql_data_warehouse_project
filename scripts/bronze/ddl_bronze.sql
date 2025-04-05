@@ -11,7 +11,7 @@ CREATE TABLE bronze.source_address (
     state_province      NVARCHAR(50),
     country_region      NVARCHAR(50),
     postal_code         NVARCHAR(50),
-    row_guide           NVARCHAR(100),
+    row_guid            NVARCHAR(100),
     modified_date       DATETIME
 );
 GO 
@@ -118,7 +118,7 @@ IF OBJECT_ID('bronze.source_product_model_product_description', 'U') IS NOT NULL
     DROP TABLE bronze.source_product_model_product_description;
 GO
 CREATE TABLE bronze.source_product_model_product_description (
-    product_model_id   		INT,
+    product_model_id   		    INT,
     product_description_id      NVARCHAR(255),
     culture                 	NVARCHAR(100),
     row_guid                 	NVARCHAR(100),
