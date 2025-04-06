@@ -128,7 +128,7 @@ IF OBJECT_ID('bronze.source_product_model_product_description', 'U') IS NOT NULL
     DROP TABLE bronze.source_product_model_product_description;
 GO
 CREATE TABLE bronze.source_product_model_product_description (
-    product_model_id   		    INT,
+    product_model_id   		INT,
     product_description_id      NVARCHAR(255),
     culture                 	NVARCHAR(100),
     row_guid                 	NVARCHAR(100),
@@ -136,3 +136,49 @@ CREATE TABLE bronze.source_product_model_product_description (
 );
 GO
 
+IF OBJECT_ID('bronze.source_sales_order_detail', 'U') IS NOT NULL
+    DROP TABLE bronze.source_sales_order_detail;
+GO
+
+CREATE TABLE bronze.source_sales_order_detail (
+    sales_order_id			INT,
+    sales_order_detail_id		INT,
+    order_qty				INT,
+    product_id				INT,
+    unit_price				DECIMAL(10, 6),
+    unit_price_discount			DECIMAL(10, 6),
+    line_total				DECIMAL(10, 6),
+    row_guid				NVARCHAR(100),
+    modified_date			DATETIME
+);
+GO 
+
+IF OBJECT_ID('bronze.source_sales_order_header', 'U') IS NOT NULL
+    DROP TABLE bronze.source_sales_order_header;
+GO
+
+CREATE TABLE bronze.source_sales_order_header (
+    	sales_order_id				INT,
+    	revision_number				INT,
+	order_date				DATETIME,
+	due_date				DATETIME,
+	ship_date				DATETIME,
+	status_info				INT,
+	online_order_flag			INT,
+	sales_order_number			NVARCHAR(50),
+	purchase_order_number			NVARCHAR(50),
+	account_number				NVARCHAR(50),
+	customer_id				INT,
+	ship_to_address_id			INT,
+	bill_to_address_id			INT,
+	ship_method				NVARCHAR(50),
+	credit_card_approval_code		INT,
+	sub_total				DECIMAL(15, 9),
+	tax_amt		                	DECIMAL(15, 9),
+	freight		                	DECIMAL(15, 9),
+	total_due		       	        DECIMAL(15, 9),
+	comment					NVARCHAR(50),
+    	row_guid				NVARCHAR(100),
+	modified_date				DATETIME
+);
+GO 
