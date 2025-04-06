@@ -78,8 +78,8 @@ CREATE TABLE bronze.source_product (
     product_category_id         NVARCHAR(50),
     product_model_id            NVARCHAR(50),
     sell_start_date             DATETIME,
-    sell_end_date               NVARCHAR(50),
-    discontinued_date           NVARCHAR(50),
+    sell_end_date               DATETIME,
+    discontinued_date           DATETIME,
     thumbnail_photo_file_name   NVARCHAR(100),
     row_guid                    NVARCHAR(100),
     modified_date               DATETIME
