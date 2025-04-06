@@ -20,7 +20,7 @@ CREATE TABLE silver.source_address (
     state_province      NVARCHAR(50),
     country_region      NVARCHAR(50),
     postal_code         NVARCHAR(50),
-    row_guide           NVARCHAR(100),
+    row_guid            NVARCHAR(100),
     modified_date       DATE,
 	  dwh_create_date     DATETIME2 DEFAULT GETDATE()
 );
@@ -44,7 +44,7 @@ CREATE TABLE silver.source_customer (
     phone				       NVARCHAR(50),
     password_hash		   NVARCHAR(50),
     password_salt		   NVARCHAR(50),
-	  row_guide          NVARCHAR(100),
+	  row_guid          NVARCHAR(100),
     modified_date      DATE,
 	  dwh_create_date    DATETIME2 DEFAULT GETDATE()
 );
