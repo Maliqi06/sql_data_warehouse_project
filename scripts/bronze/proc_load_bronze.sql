@@ -179,4 +179,44 @@ BEGIN
 	END CATCH;
 
 	PRINT '===============================================================================================';
+
+	PRINT 'Inserting data into bronze.source_sales_order_detail...';
+	BEGIN TRY
+		TRUNCATE TABLE bronze.source_sales_order_detail;
+		BULK INSERT bronze.source_sales_order_detail
+		FROM 'C:\data\source\sales_order_detail.csv'
+		WITH (
+			FORMAT = 'CSV',
+			FIRSTROW = 2,
+			FIELDTERMINATOR = ',',
+			FIELDQUOTE = '"',
+			TABLOCK
+		);
+		PRINT 'Successfully inserted data into bronze.source_sales_order_detail.';
+	END TRY
+	BEGIN CATCH
+		PRINT 'Error inserting data into bronze.source_sales_order_detail: ' + ERROR_MESSAGE();
+	END CATCH;
+
+	PRINT '===============================================================================================';
+
+	PRINT 'Inserting data into bronze.source_sales_order_header...';
+	BEGIN TRY
+		TRUNCATE TABLE bronze.source_sales_order_header;
+		BULK INSERT bronze.source_sales_order_header
+		FROM 'C:\data\source\sales_order_header.csv'
+		WITH (
+			FORMAT = 'CSV',
+			FIRSTROW = 2,
+			FIELDTERMINATOR = ',',
+			FIELDQUOTE = '"',
+			TABLOCK
+		);
+		PRINT 'Successfully inserted data into bronze.source_sales_order_header.';
+	END TRY
+	BEGIN CATCH
+		PRINT 'Error inserting data into bronze.source_sales_order_header: ' + ERROR_MESSAGE();
+	END CATCH;
+
+	PRINT '===============================================================================================';
 END
