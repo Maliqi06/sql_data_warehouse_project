@@ -268,4 +268,84 @@ BEGIN
     END CATCH
 
     PRINT '===============================================================================================';
+
+	BEGIN TRY
+        PRINT 'Inserting data into silver.source_sales_order_detail...';
+        TRUNCATE TABLE silver.source_sales_order_detail;
+        INSERT INTO silver.source_sales_order_detail(
+		sales_order_id,
+		sales_order_detail_id,
+		order_qty,
+		product_id,
+		unit_price,
+		unit_price_discount,
+		line_total,
+		row_guid,
+		modified_date
+        )
+        SELECT
+		sales_order_id,
+		sales_order_detail_id,	
+		order_qty,
+		product_id,
+		unit_price,
+		unit_price_discount,
+		line_total,
+    		row_guid,
+     		CAST(modified_date AS DATE)
+        FROM bronze.source_sales_order_detail;
+        PRINT 'Successfully inserted into silver.source_sales_order_detail.';
+    END TRY
+    BEGIN CATCH
+        PRINT 'Error in silver.source_sales_order_detail: ' + ERROR_MESSAGE();
+    END CATCH
+
+    PRINT '===============================================================================================';
+
+	BEGIN TRY
+        PRINT 'Inserting data into silver.source_sales_order_header...';
+        TRUNCATE TABLE silver.source_sales_order_header;
+        INSERT INTO silver.source_sales_order_header(
+		sales_order_id,
+		order_date,
+		due_date,
+		ship_date,
+		sales_order_number,
+		purchase_order_number,
+		account_number,
+		customer_id,
+		ship_to_address_id,
+		bill_to_address_id,
+		sub_total,
+		tax_amt,
+		freight,
+		total_due,
+		row_guid,
+		modified_date
+        )
+        SELECT
+		sales_order_id,
+		order_date,
+		due_date,
+		ship_date,
+		sales_order_number,
+		purchase_order_number,
+		account_number,
+		customer_id,
+		ship_to_address_id,
+		bill_to_address_id,
+		sub_total,
+		tax_amt,
+		freight,
+		total_due,
+		row_guid,
+        	CAST(modified_date AS DATE)
+        FROM bronze.source_sales_order_header;
+        PRINT 'Successfully inserted into silver.source_sales_order_header.';
+    END TRY
+    BEGIN CATCH
+        PRINT 'Error in silver.source_sales_order_header: ' + ERROR_MESSAGE();
+    END CATCH
+
+    PRINT '===============================================================================================';
 END;
