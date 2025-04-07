@@ -177,7 +177,7 @@ BEGIN
         )
         SELECT
             product_category_id,
-            ISNULL(parent_product_category_id, 'N/A'),
+            ISNULL(parent_product_category_id, 1 ),
             name_info,
             row_guid,
             CAST(modified_date AS DATE)
