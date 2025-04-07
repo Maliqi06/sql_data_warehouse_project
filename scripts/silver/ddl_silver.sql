@@ -22,7 +22,7 @@ CREATE TABLE silver.source_address (
     postal_code         NVARCHAR(50),
     row_guid            NVARCHAR(100),
     modified_date       DATE,
-	  dwh_create_date     DATETIME2 DEFAULT GETDATE()
+    dwh_create_date     DATETIME2 DEFAULT GETDATE()
 );
 GO 		
 
@@ -32,21 +32,21 @@ IF OBJECT_ID('silver.source_customer', 'U') IS NOT NULL
 GO
 
 CREATE TABLE silver.source_customer (
-    customer_id        INT,
+    customer_id       		   INT,
     title		           NVARCHAR(100),
     first_name			   NVARCHAR(50),
     middle_name			   NVARCHAR(50),
-    last_name          NVARCHAR(50),
-	  suffix				     NVARCHAR(50),
+    last_name       		   NVARCHAR(50),
+    suffix			   NVARCHAR(50),
     company_name		   NVARCHAR(50),
     sales_person		   NVARCHAR(50),
     email_address		   NVARCHAR(50),
-    phone				       NVARCHAR(50),
+    phone			   NVARCHAR(50),
     password_hash		   NVARCHAR(50),
     password_salt		   NVARCHAR(50),
-	  row_guid          NVARCHAR(100),
-    modified_date      DATE,
-	  dwh_create_date    DATETIME2 DEFAULT GETDATE()
+    row_guid   			   NVARCHAR(100),
+    modified_date      		   DATE,
+    dwh_create_date		   DATETIME2 DEFAULT GETDATE()
 );
 GO 		
 
@@ -56,12 +56,12 @@ IF OBJECT_ID('silver.source_customer_address', 'U') IS NOT NULL
 GO
 
 CREATE TABLE silver.source_customer_address (
-    customer_id		      INT,
+    customer_id		INT,
     address_id          INT,
-    address_type	      NVARCHAR(50),
-    row_guid			      NVARCHAR(100),
+    address_type	NVARCHAR(50),
+    row_guid		NVARCHAR(100),
     modified_date       DATE,
-	  dwh_create_date     DATETIME2 DEFAULT GETDATE()
+    dwh_create_date     DATETIME2 DEFAULT GETDATE()
 );
 GO 
 
@@ -85,7 +85,7 @@ CREATE TABLE silver.source_product (
     thumbnail_photo_file_name   NVARCHAR(100),
     row_guid                    NVARCHAR(100),
     modified_date               DATE,
-	  dwh_create_date	      			DATETIME2 DEFAULT GETDATE()
+    dwh_create_date	      	DATETIME2 DEFAULT GETDATE()
 );
 GO 		
 
@@ -94,12 +94,12 @@ IF OBJECT_ID('silver.source_product_category', 'U') IS NOT NULL
 GO
 
 CREATE TABLE silver.source_product_category (
-    product_category_id           INT,
-    parent_product_category_id    NVARCHAR(50),
-    name_info                     NVARCHAR(50),
-    row_guid					            NVARCHAR(100),
-    modified_date				          DATE,
-	  dwh_create_date	        			DATETIME2 DEFAULT GETDATE()
+    product_category_id           	INT,
+    parent_product_category_id    	NVARCHAR(50),
+    name_info                     	NVARCHAR(50),
+    row_guid			        NVARCHAR(100),
+    modified_date	                DATE,
+    dwh_create_date	       		DATETIME2 DEFAULT GETDATE()
 );
 GO 	
 
@@ -109,10 +109,10 @@ GO
 
 CREATE TABLE silver.source_product_description (
     product_description_id		INT,
-    description_info			    NVARCHAR(MAX),
-    row_guid					        NVARCHAR(100),
-    modified_date				      DATE,
-	  dwh_create_date				    DATETIME2 DEFAULT GETDATE()
+    description_info		        NVARCHAR(MAX),
+    row_guid			        NVARCHAR(100),
+    modified_date		        DATE,
+   dwh_create_date			DATETIME2 DEFAULT GETDATE()
 );
 GO 		
 
@@ -121,11 +121,11 @@ IF OBJECT_ID('silver.source_product_model', 'U') IS NOT NULL
 GO
 
 CREATE TABLE silver.source_product_model (
-    product_model_id        INT,
-    name_info               NVARCHAR(255),
-    row_guid				        NVARCHAR(100),
-    modified_date			      DATE,
-	  dwh_create_date			    DATETIME2 DEFAULT GETDATE()
+    product_model_id        	INT,
+    name_info            	NVARCHAR(255),
+    row_guid	                NVARCHAR(100),
+    modified_date 	        DATE,
+    dwh_create_date    	        DATETIME2 DEFAULT GETDATE()
 );
 GO 		
 
@@ -134,12 +134,12 @@ IF OBJECT_ID('silver.source_product_model_product_description', 'U') IS NOT NULL
 GO
 
 CREATE TABLE silver.source_product_model_product_description (
-    product_model_id   			  INT,
-    product_description_id    NVARCHAR(255),
-    culture                 	NVARCHAR(100),
-    row_guid					        NVARCHAR(100),
-    modified_date				      DATE,
-	  dwh_create_date				    DATETIME2 DEFAULT GETDATE()
+    product_model_id   		  INT,
+    product_description_id 	  NVARCHAR(255),
+    culture                 	  NVARCHAR(100),
+    row_guid		          NVARCHAR(100),
+    modified_date                 DATE,
+    dwh_create_date		  DATETIME2 DEFAULT GETDATE()
 );
 GO 		
 
